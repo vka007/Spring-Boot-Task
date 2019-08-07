@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
 public class TrackController {
 
     TrackService trackService;
-
+    
+    @Autowired
     public TrackController(TrackService trackService) {
         this.trackService = trackService;
     }
