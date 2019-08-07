@@ -19,7 +19,7 @@ public class TrackController {
         this.trackService = trackService;
     }
 
-    @PostMapping("track")
+    @PostMapping("tracks")
     public ResponseEntity<?> saveTrack(@RequestBody Track track) {
 
         ResponseEntity responseEntity;
@@ -34,7 +34,7 @@ public class TrackController {
         return responseEntity;
     }
 
-    @DeleteMapping(value = "/delete/{id}")
+    @DeleteMapping(value = "/track/{id}")
     public ResponseEntity<?> deleteTrack(@PathVariable Integer id) {
 
         ResponseEntity responseEntity;
@@ -52,7 +52,7 @@ public class TrackController {
         return responseEntity;
     }
 
-    @PutMapping(value = "/update/{id}/{comment}")
+    @PutMapping(value = "/track/{id}/{comment}")
     public ResponseEntity<?> updateTrack(@PathVariable int id, @PathVariable String comment) {
 
         ResponseEntity responseEntity;
