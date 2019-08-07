@@ -13,9 +13,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Track {
 
     @Id
-    int id;
-    String name;
-    String comment;
+    private int id;
+    private String name;
+    private String comment;
 
     public void setId(int id) {
         this.id = id;
