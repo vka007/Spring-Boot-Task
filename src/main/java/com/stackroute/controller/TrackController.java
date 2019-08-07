@@ -29,9 +29,7 @@ public class TrackController {
         catch(Exception ex) {
             responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
         }
-
         return responseEntity;
-
     }
 
     @DeleteMapping(value = "/delete/{id}")
@@ -42,16 +40,13 @@ public class TrackController {
 
             trackService.deleteTrack(id);
             responseEntity = new ResponseEntity("Delete Successfull", HttpStatus.NO_CONTENT);
-
         }
 
         catch (Exception ex) {
 
             responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
         }
-
         return responseEntity;
-
     }
 
     @PutMapping(value = "/update/{id}/{comment}")
@@ -65,12 +60,10 @@ public class TrackController {
             responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
         }
         return responseEntity;
-
     }
 
     @GetMapping("track")
     public ResponseEntity<?> getAllTracks() {
         return new ResponseEntity<>(trackService.getAllTracks(), HttpStatus.OK);
     }
-
 }
