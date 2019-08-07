@@ -1,11 +1,9 @@
 package com.stackroute.controller;
 
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.domain.Track;
 import com.stackroute.domain.Track;
-//import com.stackroute.exception.UserAlreadyExistException;
 import com.stackroute.service.TrackService;
 import com.stackroute.service.TrackService;
 import org.junit.Before;
@@ -23,11 +21,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -42,7 +37,6 @@ public class TrackControllerTest {
     private TrackService trackService;
     @InjectMocks
     private TrackController trackController;
-
     private List<Track> list =null;
 
     @Before
@@ -67,8 +61,6 @@ public class TrackControllerTest {
                 .contentType(MediaType.APPLICATION_JSON).content(jsonToString(track)))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andDo(MockMvcResultHandlers.print());
-
-
     }
 
     @Test
@@ -78,7 +70,6 @@ public class TrackControllerTest {
                 .contentType(MediaType.APPLICATION_JSON).content(jsonToString(track)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());
-
     }
 
     @Test
@@ -111,10 +102,4 @@ public class TrackControllerTest {
         }
         return string;
     }
-
-    /*
-
-     */
-
-
 }
