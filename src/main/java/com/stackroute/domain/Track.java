@@ -4,6 +4,7 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Constructor
 @Entity
 public class Track {
 
@@ -14,13 +15,7 @@ public class Track {
 
     public Track() {
     }
-
-    public Track(int id, String name, String comment) {
-        this.id = id;
-        this.name = name;
-        this.comment = comment;
-    }
-
+    
     public int getId() {
         return id;
     }
