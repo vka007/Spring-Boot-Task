@@ -12,8 +12,8 @@ import java.util.Optional;
 @Service
 public class TrackServiceImpl implements TrackService {
 
-    TrackRepository trackRepository;
-    Track track;
+    private TrackRepository trackRepository;
+    private Track track;
 
     @Autowired
     public TrackServiceImpl(TrackRepository trackRepository) {
@@ -69,18 +69,4 @@ public class TrackServiceImpl implements TrackService {
             throw new TrackNotFoundException("ID doesnt exist");
         }
     }
-
-    /*@Override
-    public List<Track> getByTrackName(String name) {
-        return trackRepository.findByName(name);
-    }
-
-    @Override
-    public List<Track> getTrackByNameSortByName(String name) {
-        return trackRepository.findByNameSortedById(name);
-    }
-
-
-*/
-
 }
