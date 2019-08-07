@@ -12,6 +12,7 @@ public class TrackController {
 
     TrackService trackService;
 
+    @Autowired
     public TrackController(TrackService trackService) {
         this.trackService = trackService;
     }
@@ -66,8 +67,6 @@ public class TrackController {
         return responseEntity;
 
     }
-
-
 
     @GetMapping("track")
     public ResponseEntity<?> getAllTracks() {
