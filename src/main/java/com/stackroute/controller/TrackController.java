@@ -19,7 +19,7 @@ public class TrackController {
         this.trackService = trackService;
     }
 
-    @PostMapping("tracks")
+    @PostMapping("track")
     public ResponseEntity<?> saveTrack(@RequestBody Track track) {
 
         ResponseEntity responseEntity;
@@ -67,15 +67,12 @@ public class TrackController {
             responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
         }
         return responseEntity;
-
     }
 
-    @GetMapping("track")
+    @GetMapping("tracks")
     public ResponseEntity<?> getAllTracks() {
         System.out.println(trackService.getByTrackName("good").toString());
         System.out.println(trackService.getTrackByNameSortByName("good").toString());
         return new ResponseEntity<>(trackService.getAllTracks(), HttpStatus.OK);
-
     }
-
 }
