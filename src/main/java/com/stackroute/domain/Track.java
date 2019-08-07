@@ -4,7 +4,7 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
+@Constructor
 @Data
 @Getter
 @Setter
@@ -16,12 +16,6 @@ public class Track {
     int id;
     String name;
     String comment;
-
-    public Track(int id, String name, String comment) {
-        this.id = id;
-        this.name = name;
-        this.comment = comment;
-    }
 
     public void setId(int id) {
         this.id = id;
