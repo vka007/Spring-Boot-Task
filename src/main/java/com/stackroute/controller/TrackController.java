@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value="api/v1")
 public class TrackController {
 
-    TrackService trackService;
+    private TrackService trackService;
 
     @Autowired
     public TrackController(TrackService trackService) {
@@ -29,9 +29,7 @@ public class TrackController {
         catch(Exception ex) {
             responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
         }
-
         return responseEntity;
-
     }
 
     @DeleteMapping(value = "/delete/{id}")
@@ -49,9 +47,7 @@ public class TrackController {
 
             responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
         }
-
         return responseEntity;
-
     }
 
     @PutMapping(value = "/update/{id}/{comment}")
@@ -65,12 +61,10 @@ public class TrackController {
             responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
         }
         return responseEntity;
-
     }
 
     @GetMapping("track")
     public ResponseEntity<?> getAllTracks() {
         return new ResponseEntity<>(trackService.getAllTracks(), HttpStatus.OK);
     }
-
 }
