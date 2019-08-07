@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value="api/v1")
 public class TrackController {
 
-    TrackService trackService;
-    Track track;
+    private TrackService trackService;
+    private Track track;
 
     @Autowired
     public TrackController(TrackService trackService) {
@@ -32,9 +32,7 @@ public class TrackController {
         catch(TrackAlreadyExistsException ex) {
             responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
         }
-
         return responseEntity;
-
     }
 
     @DeleteMapping(value = "/track/{id}")
@@ -45,29 +43,21 @@ public class TrackController {
         trackService.deleteTrack(track);
         responseEntity = new ResponseEntity("Delete Successfull", HttpStatus.OK);
         return responseEntity;
-
     }
-
 
     @PutMapping("/track")
     public ResponseEntity<?> updateTrack(@RequestBody Track track) throws TrackNotFoundException
     {
         ResponseEntity responseEntity;
-
-
         trackService.updateTrack(track);
         responseEntity = new ResponseEntity<String>("successfully updated", HttpStatus.CREATED);
         return responseEntity;
     }
-
-
-
+    
     @GetMapping("track")
     public ResponseEntity<?> getAllTracks() {
         System.out.println(trackService.getByTrackName("good").toString());
         System.out.println(trackService.getTrackByNameSortByName("good").toString());
         return new ResponseEntity<>(trackService.getAllTracks(), HttpStatus.OK);
-
     }
-
 }
