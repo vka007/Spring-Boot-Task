@@ -32,27 +32,21 @@ public class TrackController {
         catch(TrackAlreadyExistsException ex) {
             responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
         }
-
         return responseEntity;
     }
 
     @DeleteMapping(value = "/track/{id}")
     public ResponseEntity<?> deleteTrack(@PathVariable Integer id) throws TrackNotFoundException {
-
         ResponseEntity responseEntity;
-
         trackService.deleteTrack(track);
         responseEntity = new ResponseEntity("Delete Successfull", HttpStatus.OK);
         return responseEntity;
-
     }
     
     @PutMapping("/track/{id}/{comment}")
     public ResponseEntity<?> updateTrack(@RequestBody Track track) throws TrackNotFoundException
     {
         ResponseEntity responseEntity;
-
-
         trackService.updateTrack(track);
         responseEntity = new ResponseEntity<String>("successfully updated", HttpStatus.CREATED);
         return responseEntity;
