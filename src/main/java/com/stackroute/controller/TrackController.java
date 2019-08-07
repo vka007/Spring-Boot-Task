@@ -20,7 +20,7 @@ public class TrackController {
         this.trackService = trackService;
     }
 
-    @PostMapping("tracks")
+    @PostMapping("track")
     public ResponseEntity<?> saveTrack(@RequestBody Track track) {
 
         ResponseEntity responseEntity;
@@ -58,7 +58,7 @@ public class TrackController {
         return responseEntity;
     }
     
-    @GetMapping("track")
+    @GetMapping("tracks")
     public ResponseEntity<?> getAllTracks() {
           return new ResponseEntity<>(trackService.getAllTracks(), HttpStatus.OK);
     }
