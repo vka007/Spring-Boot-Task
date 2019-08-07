@@ -45,7 +45,7 @@ public class TrackController {
         return responseEntity;
     }
 
-    @PutMapping("/track")
+    @PutMapping("/track/{id}/{comment}")
     public ResponseEntity<?> updateTrack(@RequestBody Track track) throws TrackNotFoundException
     {
         ResponseEntity responseEntity;
@@ -54,7 +54,7 @@ public class TrackController {
         return responseEntity;
     }
     
-    @GetMapping("track")
+    @GetMapping("tracks")
     public ResponseEntity<?> getAllTracks() {
         System.out.println(trackService.getByTrackName("good").toString());
         System.out.println(trackService.getTrackByNameSortByName("good").toString());
